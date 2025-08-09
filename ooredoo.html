@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <script type="importmap">
+    {
+      "imports": {
+        "@material/web/": "https://esm.run/@material/web/"
+      }
+    }
+  </script>
+  <script type="module">
+    import '@material/web/all.js';
+    import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+
+    document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+  </script>
+</head>
+<body>
+  <h1 class="md-typescale-display-medium">Hello Material!</h1>
+  <form>
+    <p class="md-typescale-body-medium">Check out these controls in a form!</p>
+    <md-checkbox></md-checkbox>
+    <div>
+      <md-radio name="group"></md-radio>
+      <md-radio name="group"></md-radio>
+      <md-radio name="group"></md-radio>
+    </div>
+
+    <md-outlined-text-field label="Favorite color" value="Purple"></md-outlined-text-field>
+
+    <md-outlined-button type="reset">Reset</md-outlined-button>
+  </form>
+  <style>
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+  </style>
+</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Packs - Ooredoo</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 100%;
+            padding: 15px;
+        }
+        .header {
+            background-color: #e31937;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .mobile-number {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .category {
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .category-header {
+            background-color: #e31937;
+            color: white;
+            padding: 12px 15px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .offer {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .offer:last-child {
+            border-bottom: none;
+        }
+        .offer-desc1 {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+        .offer-desc2 {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .offer-details {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #555;
+        }
+        .buy-btn {
+            background-color: #e31937;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+        }
+        .empty-category {
+            padding: 15px;
+            text-align: center;
+            color: #888;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Ooredoo Mobile Packs</h1>
+        </div>
+        
+        <div class="mobile-number" id="mobileNumber">
+            Loading...
+        </div>
+        
+        <div id="packsContainer">
+            <!-- Packs will be loaded here dynamically -->
+        </div>
+    </div>
+
+    <script>
+        // This would typically come from an API call
+        const responseData = {
+            "sku": "OOREDOO/AYANTAN/ENQUIRY",
+            "output": {
+                "mobile": "9973331604",
+                "available_packs": [
+                    {
+                        "offer_category": "AYANTAN VOICE",
+                        "order": 2,
+                        "offers": [
+                            {
+                                "offer_no": 8,
+                                "offer_id": "121001239470",
+                                "offer_desc1": "91 Ooredoo Mins (30D)= 999ks",
+                                "offer_desc2": "91 Ooredoo to Ooredoo Mins for 30days= 999ks",
+                                "validity": 30,
+                                "pack_price": 999,
+                                "offer_tag": "",
+                                "offer_tag_mm": "",
+                                "pack_type": "VOICE",
+                                "pack_group": "VOICE"
+                            },
+                            {
+                                "offer_no": 9,
+                                "offer_id": "121001239444",
+                                "offer_desc1": "91 Ooredoo Mins (30D)= 999ks",
+                                "offer_desc2": "91 Ooredoo to Ooredoo Mins for 30days= 999ks",
+                                "validity": 30,
+                                "pack_price": 999,
+                                "offer_tag": "",
+                                "offer_tag_mm": "",
+                                "pack_type": "VOICE",
+                                "pack_group": "VOICE"
+                            }
+                        ]
+                    },
+                    {
+                        "offer_category": "DATA",
+                        "order": 3,
+                        "offers": [
+                            {
+                                "offer_no": 0,
+                                "offer_id": "121001241429",
+                                "offer_desc1": "999Ks_435MB_30D_Bank_MOMO",
+                                "offer_desc2": "",
+                                "validity": null,
+                                "pack_price": 999,
+                                "offer_tag": "",
+                                "offer_tag_mm": "",
+                                "pack_type": null,
+                                "pack_group": "DATA"
+                            }
+                        ]
+                    },
+                    {
+                        "offer_category": "VOICE",
+                        "order": 4,
+                        "offers": []
+                    },
+                    {
+                        "offer_category": "Data-Buffet",
+                        "order": 5,
+                        "offers": []
+                    },
+                    {
+                        "offer_category": "Roaming",
+                        "order": 6,
+                        "offers": []
+                    },
+                    {
+                        "offer_category": "Supernet",
+                        "order": 7,
+                        "offers": []
+                    }
+                ],
+                "total_Offers": 7
+            }
+        };
+
+        // Function to render the packs
+        function renderPacks(data) {
+            // Display mobile number
+            document.getElementById('mobileNumber').textContent = `Mobile: ${data.output.mobile}`;
+            
+            const packsContainer = document.getElementById('packsContainer');
+            packsContainer.innerHTML = '';
+            
+            // Sort categories by order
+            const sortedCategories = data.output.available_packs.sort((a, b) => a.order - b.order);
+            
+            // Render each category
+            sortedCategories.forEach(category => {
+                if (category.offers.length === 0) return; // Skip empty categories
+                
+                const categoryElement = document.createElement('div');
+                categoryElement.className = 'category';
+                
+                const categoryHeader = document.createElement('div');
+                categoryHeader.className = 'category-header';
+                categoryHeader.textContent = category.offer_category;
+                categoryElement.appendChild(categoryHeader);
+                
+                if (category.offers.length > 0) {
+                    category.offers.forEach(offer => {
+                        const offerElement = document.createElement('div');
+                        offerElement.className = 'offer';
+                        
+                        const desc1 = document.createElement('div');
+                        desc1.className = 'offer-desc1';
+                        desc1.textContent = offer.offer_desc1;
+                        offerElement.appendChild(desc1);
+                        
+                        if (offer.offer_desc2) {
+                            const desc2 = document.createElement('div');
+                            desc2.className = 'offer-desc2';
+                            desc2.textContent = offer.offer_desc2;
+                            offerElement.appendChild(desc2);
+                        }
+                        
+                        const details = document.createElement('div');
+                        details.className = 'offer-details';
+                        
+                        const validity = document.createElement('span');
+                        validity.textContent = offer.validity ? `Validity: ${offer.validity} days` : '';
+                        details.appendChild(validity);
+                        
+                        const price = document.createElement('span');
+                        price.textContent = `Price: ${offer.pack_price} Ks`;
+                        details.appendChild(price);
+                        
+                        offerElement.appendChild(details);
+                        
+                        const buyBtn = document.createElement('button');
+                        buyBtn.className = 'buy-btn';
+                        buyBtn.textContent = 'Buy Now';
+                        buyBtn.onclick = function() {
+                            alert(`Buying pack: ${offer.offer_desc1}`);
+                            // Here you would typically call an API to purchase the pack
+                        };
+                        offerElement.appendChild(buyBtn);
+                        
+                        categoryElement.appendChild(offerElement);
+                    });
+                } else {
+                    const emptyMsg = document.createElement('div');
+                    emptyMsg.className = 'empty-category';
+                    emptyMsg.textContent = 'No offers available in this category';
+                    categoryElement.appendChild(emptyMsg);
+                }
+                
+                packsContainer.appendChild(categoryElement);
+            });
+        }
+
+        // Initial render
+        document.addEventListener('DOMContentLoaded', function() {
+            renderPacks(responseData);
+        });
+
+        // In a real app, you might fetch this data from an API:
+        /*
+        fetch('https://api.example.com/mobile-packs')
+            .then(response => response.json())
+            .then(data => renderPacks(data))
+            .catch(error => console.error('Error:', error));
+        */
+    </script>
+</body>
+</html>
